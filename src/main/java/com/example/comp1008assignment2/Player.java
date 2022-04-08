@@ -5,11 +5,13 @@ public class Player {
 
     private String name;
     private int jerseyNumber;
+    private int position;
     private double averageRating;
 
-    public Player(String name, int jerseyNumber, double averageRating) {
+    public Player(String name, int jerseyNumber, int position, double averageRating) {
         setName(name);
         setJerseyNumber(jerseyNumber);
+        setPosition(position);
         setAverageRating(averageRating);
     }
 
