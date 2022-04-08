@@ -19,24 +19,86 @@ public class Player {
         return name;
     }
 
+    /**
+     * Validate that the name is more than 2 characters
+     * @param name
+     */
     public void setName(String name) {
-        this.name = name;
+        if (name.length() > 2)
+            this.name = name.trim();
+        else
+            throw new IllegalArgumentException("Name must be atleast 2 characters long.");
     }
 
     public int getJerseyNumber() {
         return jerseyNumber;
     }
 
+    /**
+     * Validate that the jersey number is between 0 and 100
+     * @param jerseyNumber
+     */
     public void setJerseyNumber(int jerseyNumber) {
-        this.jerseyNumber = jerseyNumber;
+        if (jerseyNumber >= 0 && jerseyNumber <= 0)
+            this.jerseyNumber = jerseyNumber;
+        else
+            throw new IllegalArgumentException("Jersey Number must be between 0 and 100");
+    }
+
+    /**
+     * Validates that the position that is pasted is 1 - 5 (1 - Point Guard, 2 -Shooting Guard , 3- Small Forward, 4 - Power Forward, and 5- Center)
+     * @param position
+     */
+    public void setPosition(int position) {
+        if (position > 0 && position <= 5 )
+            this.position = position;
+        else
+            throw new IllegalArgumentException("Position must be 1 - 5 {1 - Point Guard, 2 -Shooting Guard , 3- Small Forward, 4 - Power Forward, and 5- Center}");
+    }
+
+    /**
+     * Method gets the stored int position (1 - Point Guard, 2 -Shooting Guard , 3- Small Forward, 4 - Power Forward, and 5- Center
+     * and return the names associated with the int value)
+     * @return String Position Name
+     */
+    public String getPosition() {
+        String positionName;
+        // Using switch case to determine the position name returned.
+        switch (this.position) {
+            case 1:
+                positionName = "Point Guard";
+                break;
+            case 2:
+                positionName = "Shooting Guard";
+                break;
+            case 3:
+                positionName = "Small Forward";
+                break;
+            case 4:
+                positionName = "Power Forward";
+                break;
+            case 5:
+                positionName = "Center";
+                break;
+            default:
+                positionName = "";
+        }
+        return positionName;
     }
 
     public double getAverageRating() {
         return averageRating;
     }
 
+    /**
+     * Validates that the player rating is between 0 - 100
+     * @param averageRating
+     */
     public void setAverageRating(double averageRating) {
-        this.averageRating = averageRating;
+        if (averageRating >= 0 && averageRating <= 100)
+            this.averageRating = averageRating;
+        else
+            throw new IllegalArgumentException("Player Rating must be betweeen 0 and 100");
     }
 
     @Override
