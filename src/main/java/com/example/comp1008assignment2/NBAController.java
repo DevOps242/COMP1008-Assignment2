@@ -146,7 +146,7 @@ public class NBAController implements Initializable {
 
     @FXML
     void loadStartingFive(ActionEvent event) {
-
+        team.getStartingFive();
     }
 
     /**
@@ -233,7 +233,11 @@ public class NBAController implements Initializable {
         playerGenerator.add(new Player("Khem Birch", 24, 5, 76, "/images/players/khembirch.png"));
         playerGenerator.add(new Player("Kyle Anderson", 1, 4, 79, "/images/players/kyleanderson.jpg"));
         playerGenerator.add(new Player("Deandre Ayton", 22, 5, 86, "/images/players/deandreayton.png"));
-        playerGenerator.add(new Player("Mo Bamba", 5, 5, 80, "/images/players/mobamba.png"));
+        playerGenerator.add(new Player("Darius Bazley", 7, 4, 77, "/images/players/generic.png"));
+        playerGenerator.add(new Player("Jordan Bell", 20, 4, 71, "/images/players/generic.png"));
+        playerGenerator.add(new Player("Joel Ayayi", 17, 2, 68, "/images/players/generic.png"));
+        playerGenerator.add(new Player("Cole Anthony", 50, 2, 78, "/images/players/generic.png"));
+        playerGenerator.add(new Player("Grayson Allen", 7, 2, 76, "/images/players/generic.png"));
         Collections.shuffle(playerGenerator);
 
         loadPlayer(playerGenerator);
