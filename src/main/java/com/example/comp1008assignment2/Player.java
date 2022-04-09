@@ -1,5 +1,7 @@
 package com.example.comp1008assignment2;
 
+import java.util.Locale;
+
 //https://lucid.app/lucidchart/47dcb37e-3da7-42d6-99e9-4495f77be6c1/edit?beaconFlowId=D277759F349412D4&invitationId=inv_31f324cb-a29a-4b72-a9d6-cbb84053b3d1&page=HWEp-vi-RSFO#
 public class Player {
 
@@ -25,9 +27,12 @@ public class Player {
      */
     public void setName(String name) {
         if (name.length() > 2)
+        {
+            name = name.substring(0,1).toUpperCase();
             this.name = name.trim();
+        }
         else
-            throw new IllegalArgumentException("Name must be atleast 2 characters long.");
+            throw new IllegalArgumentException("Name must be at least 2 characters long.");
     }
 
     public int getJerseyNumber() {
