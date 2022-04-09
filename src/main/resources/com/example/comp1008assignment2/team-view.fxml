@@ -3,6 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -76,8 +78,8 @@
                   </Label>
                   <GridPane prefHeight="165.0" prefWidth="258.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="84.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="101.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="51.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.0" minWidth="10.0" prefWidth="134.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="60.0" />
                     </columnConstraints>
                     <rowConstraints>
@@ -91,13 +93,13 @@
                      <children>
                         <Label alignment="CENTER" prefHeight="17.0" prefWidth="82.0" text="Position:" />
                         <Label alignment="CENTER" prefHeight="17.0" prefWidth="82.0" text="Rating:" GridPane.columnIndex="2" />
-                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="82.0" text="Name:" textAlignment="CENTER" GridPane.columnIndex="1" />
-                        <Label fx:id="pgPos" prefHeight="23.0" prefWidth="81.0" GridPane.rowIndex="1" />
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="88.0" text="Name:" textAlignment="CENTER" GridPane.columnIndex="1" />
+                        <Label alignment="CENTER" prefHeight="23.0" prefWidth="63.0" text="PG" GridPane.rowIndex="1" />
                         <Label fx:id="pgName" prefHeight="23.0" prefWidth="101.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label fx:id="sgPos" prefHeight="23.0" prefWidth="81.0" GridPane.rowIndex="2" />
-                        <Label fx:id="sfPos" prefHeight="23.0" prefWidth="81.0" GridPane.rowIndex="3" />
-                        <Label fx:id="pfPos" prefHeight="23.0" prefWidth="81.0" GridPane.rowIndex="4" />
-                        <Label fx:id="cPos" prefHeight="23.0" prefWidth="81.0" GridPane.rowIndex="5" />
+                        <Label alignment="CENTER" prefHeight="23.0" prefWidth="81.0" text="SG" GridPane.rowIndex="2" />
+                        <Label alignment="CENTER" prefHeight="23.0" prefWidth="81.0" text="SF" GridPane.rowIndex="3" />
+                        <Label alignment="CENTER" prefHeight="23.0" prefWidth="81.0" text="PF" GridPane.rowIndex="4" />
+                        <Label alignment="CENTER" prefHeight="23.0" prefWidth="81.0" text="C" GridPane.rowIndex="5" />
                         <Label fx:id="sgName" prefHeight="23.0" prefWidth="101.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label fx:id="sfName" prefHeight="23.0" prefWidth="101.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label fx:id="pfName" prefHeight="23.0" prefWidth="101.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
@@ -120,20 +122,19 @@
             <Button fx:id="genStartingFive" mnemonicParsing="false" onAction="#loadStartingFive" prefHeight="25.0" prefWidth="106.0" text="Starting Five" />
         </buttons>
       </ButtonBar>
-      <ButtonBar layoutX="201.0" layoutY="192.0" prefHeight="40.0" prefWidth="170.0">
-        <buttons>
-          <Button fx:id="playerCyclePrev" mnemonicParsing="false" onAction="#loadPrevPlayer" text="Prev" />
-            <Button fx:id="playerCycleNext" mnemonicParsing="false" onAction="#loadNextPlayer" text="Next" />
-        </buttons>
+      <ButtonBar layoutX="214.0" layoutY="231.0" prefHeight="40.0" prefWidth="131.0">
+         <buttons>
+            <ButtonBar prefHeight="40.0" prefWidth="170.0">
+              <buttons>
+                <Button fx:id="playerCyclePrev" mnemonicParsing="false" onAction="#loadPrevPlayer" text="Prev" />
+                  <Button fx:id="playerCycleNext" mnemonicParsing="false" onAction="#loadNextPlayer" text="Next" />
+              </buttons>
+            </ButtonBar>
+         </buttons>
       </ButtonBar>
-      <ButtonBar layoutX="225.0" layoutY="232.0" prefHeight="40.0" prefWidth="131.0">
-        <buttons>
-          <Button fx:id="createPlayer" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createPlayer" prefHeight="25.0" prefWidth="109.0" text="Create Player" textAlignment="CENTER" />
-        </buttons>
-      </ButtonBar>
-      <VBox alignment="CENTER" layoutX="14.0" layoutY="12.0" prefHeight="188.0" prefWidth="200.0">
+      <VBox alignment="CENTER" layoutX="14.0" layoutY="12.0" prefHeight="188.0" prefWidth="170.0">
          <children>
-            <ImageView fx:id="playerImg" fitHeight="188.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="playerImg" fitHeight="188.0" fitWidth="177.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
          </children>
       </VBox>
       <VBox layoutX="14.0" layoutY="212.0" prefHeight="160.0" prefWidth="200.0">
@@ -194,5 +195,38 @@
             </GridPane>
          </children>
       </VBox>
+      <VBox layoutX="198.0" layoutY="6.0" prefHeight="188.0" prefWidth="162.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="24.0" prefWidth="161.0" text="Create a Player">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <GridPane prefHeight="147.0" prefWidth="136.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="76.0" minWidth="10.0" prefWidth="72.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="90.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="17.0" prefWidth="44.0" text="Name:" />
+                  <Label text="Number:" GridPane.rowIndex="1" />
+                  <Label GridPane.rowIndex="2" />
+                  <Label fx:id="createRatingView" prefHeight="25.0" prefWidth="79.0" text="Rating:" GridPane.rowIndex="3" />
+                  <Slider fx:id="createPlayerRating" onDragDetected="#actionCreatePlayerRatingDrag" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Position:" GridPane.rowIndex="2" />
+                  <TextField fx:id="createPlayerName" prefHeight="26.0" prefWidth="80.0" promptText="John Doe" GridPane.columnIndex="1" />
+                  <TextField fx:id="createrPlayerNumber" promptText=" 0 - 100" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="createPlayerPosition" prefHeight="26.0" prefWidth="36.0" promptText="1 - 5" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </children></VBox>
+    <Button fx:id="createPlayer" alignment="CENTER" contentDisplay="CENTER" layoutX="247.0" layoutY="199.0" mnemonicParsing="false" onAction="#createPlayer" prefHeight="25.0" prefWidth="109.0" text="Create Player" textAlignment="CENTER" />
+      <Label layoutX="14.0" layoutY="399.0" prefHeight="20.0" prefWidth="389.0" text="One of each Pos, must be chosen to generate starting five." textFill="#eb3c3c" />
    </children>
 </AnchorPane>

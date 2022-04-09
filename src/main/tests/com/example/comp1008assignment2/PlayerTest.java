@@ -151,8 +151,8 @@ class PlayerTest {
 
     @Test
     void setPlayerImage() {
-        player.setPlayerImage("images/players/generic.png");
-        assertEquals("images/players/generic.png", player.getPlayerImage());
+        player.setPlayerImage("/images/players/generic.png");
+        assertEquals("/images/players/generic.png", player.getPlayerImage());
     }
 
     @Test

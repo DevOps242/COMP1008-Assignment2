@@ -111,7 +111,7 @@ public class Player {
     }
 
     public void setPlayerImage(String image) {
-        if (image.startsWith("images/players/"))
+        if (image.startsWith("/images/players/"))
             this.playerImage = image;
         else
             throw new IllegalArgumentException("Player image provided is invalid");

@@ -57,7 +57,7 @@ public class Team {
     }
 
     public void setLogo(String logo) {
-        if(logo.startsWith("images/teams/"))
+        if(logo.startsWith("/images/teams/"))
             this.logo = logo;
         else
             throw new IllegalArgumentException("Teams Image is an invalid image");
@@ -202,16 +202,13 @@ public class Team {
                 }
         );
 
-        try {
-            // Filter the arrays and get the highest rating person for each position
-            startingFivePlayers.add(Collections.max(pointGuards, Comparator.comparing(item -> item.getAverageRating())));
-            startingFivePlayers.add(Collections.max(shootingGuards, Comparator.comparing(item -> item.getAverageRating())));
-            startingFivePlayers.add(Collections.max(smallForwards, Comparator.comparing(item -> item.getAverageRating())));
-            startingFivePlayers.add(Collections.max(powerForwards, Comparator.comparing(item -> item.getAverageRating())));
-            startingFivePlayers.add(Collections.max(centers, Comparator.comparing(item -> item.getAverageRating())));
-        } catch (Exception error) {
-            throw new IllegalStateException("Could not get your starting five");
-        }
+        // Filter the arrays and get the highest rating person for each position
+        startingFivePlayers.add(Collections.max(pointGuards, Comparator.comparing(item -> item.getAverageRating())));
+        startingFivePlayers.add(Collections.max(shootingGuards, Comparator.comparing(item -> item.getAverageRating())));
+        startingFivePlayers.add(Collections.max(smallForwards, Comparator.comparing(item -> item.getAverageRating())));
+        startingFivePlayers.add(Collections.max(powerForwards, Comparator.comparing(item -> item.getAverageRating())));
+        startingFivePlayers.add(Collections.max(centers, Comparator.comparing(item -> item.getAverageRating())));
+
 
         return startingFivePlayers;
     }

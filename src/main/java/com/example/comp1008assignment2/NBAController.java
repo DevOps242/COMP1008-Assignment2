@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -122,6 +124,21 @@ public class NBAController implements Initializable {
     @FXML
     private Label teamRating;
 
+    @FXML
+    private Label createRatingView;
+
+    @FXML
+    private TextField createPlayerName;
+
+    @FXML
+    private TextField createPlayerPosition;
+
+    @FXML
+    private Slider createPlayerRating;
+
+    @FXML
+    private TextField createrPlayerNumber;
+
     /**
      * Cycles through the generated players - going forward.
      * @param event
@@ -185,7 +202,26 @@ public class NBAController implements Initializable {
     }
 
     @FXML
+    void actionCreatePlayerRatingDrag() {
+        String ratingView = createRatingView.getText();
+        ratingView = ratingView.substring(0,5) + " " + createPlayerRating.getValue() + "%";
+        createRatingView.setText(ratingView);
+    }
+
+    @FXML
     void createPlayer(ActionEvent event) {
+
+        Player newPlayer = new Player(createPlayerName.getText(), Integer.parseInt(createrPlayerNumber.getText()), Integer.parseInt(createPlayerPosition.getText()), createPlayerRating.getValue(), "/images/players/generic.png");
+
+        // Add to the list of players showing.
+        playerGenerator.add(newPlayer);
+
+        // Change the index of the loaded player.
+        playerCounter = playerGenerator.size() - 1;
+
+        // Show the new player.
+        loadPlayer(playerGenerator);
+
 
     }
 
@@ -230,27 +266,22 @@ public class NBAController implements Initializable {
         }
 
         // Load the Point Guard information
-        pgPos.setText(pointGuard.getPosition());
         pgName.setText(pointGuard.getName());
         pgRating.setText(Double.toString(pointGuard.getAverageRating()) + "%");
 
         // Load the Shooting Guard information
-        sgPos.setText(shootingGuard.getPosition());
         sgName.setText(shootingGuard.getName());
         sgRating.setText(Double.toString(shootingGuard.getAverageRating()) + "%");
 
         // Load the Small Forward information
-        sfPos.setText(smallForward.getPosition());
         sfName.setText(smallForward.getName());
         sfRating.setText(Double.toString(smallForward.getAverageRating()) + "%");
 
         // Load the Power Forward information
-        pfPos.setText(powerForward.getPosition());
         pfName.setText(powerForward.getName());
         pfRating.setText(Double.toString(powerForward.getAverageRating()) + "%");
 
         // Load the Center information
-        cPos.setText(center.getPosition());
         cName.setText(center.getName());
         cRating.setText(Double.toString(center.getAverageRating()) + "%");
     }

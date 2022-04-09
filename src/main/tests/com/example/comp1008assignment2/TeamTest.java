@@ -62,8 +62,8 @@ class TeamTest {
 
     @Test
     void setLogo() {
-        team.setLogo("images/teams/generic.png");
-        assertEquals("images/teams/generic.png", team.getLogo());
+        team.setLogo("/images/teams/generic.png");
+        assertEquals("/images/teams/generic.png", team.getLogo());
     }
 
     @Test
