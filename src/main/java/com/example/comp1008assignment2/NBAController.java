@@ -420,30 +420,37 @@ public class NBAController implements Initializable {
         playerGenerator.add(new Player("Kevin Durant", 7, 3, 96, "/images/players/kevindurant.png"));
         playerGenerator.add(new Player("John Wall", 1, 1, 83, "/images/players/johnwall.png"));
         playerGenerator.add(new Player("Khem Birch", 24, 5, 76, "/images/players/khembirch.png"));
-        playerGenerator.add(new Player("Kyle Anderson", 1, 4, 79, "/images/players/kyleanderson.jpg"));
+        playerGenerator.add(new Player("Kyle Anderson", 1, 4, 79, "/images/players/generic.png"));
         playerGenerator.add(new Player("Deandre Ayton", 22, 5, 86, "/images/players/deandreayton.png"));
         playerGenerator.add(new Player("Darius Bazley", 7, 4, 77, "/images/players/generic.png"));
         playerGenerator.add(new Player("Jordan Bell", 20, 4, 71, "/images/players/generic.png"));
         playerGenerator.add(new Player("Joel Ayayi", 17, 2, 68, "/images/players/generic.png"));
         playerGenerator.add(new Player("Cole Anthony", 50, 2, 78, "/images/players/generic.png"));
         playerGenerator.add(new Player("Grayson Allen", 7, 2, 76, "/images/players/generic.png"));
-
-        // New Players
-
-
-
-
-
-
-
-
-
+        playerGenerator.add(new Player("John Collings", 20, 4, 83, "/images/players/generic.png"));
+        playerGenerator.add(new Player("Delon Wright", 0, 1, 77, "/images/players/delonwright.png"));
+        playerGenerator.add(new Player("Skylar Mays", 4, 2, 73, "/images/players/skylarmays.png"));
+        playerGenerator.add(new Player("Sharife Cooper", 2, 1, 71, "/images/players/sharifecooper.png"));
+        playerGenerator.add(new Player("Kawhi Leonard", 2, 3, 95, "/images/players/generic.png"));
+        playerGenerator.add(new Player("Bam Adebayo", 13, 5, 87, "/images/players/generic.png"));
+        playerGenerator.add(new Player("Domantas Sabonis", 10, 4, 87, "/images/players/domantassabonis.png"));
+        playerGenerator.add(new Player("Pascal Siakam", 43, 4, 87, "/images/players/pascalsiakam.png"));
+        playerGenerator.add(new Player("Jaylen Brown", 7, 3, 86, "/images/players/generic.png"));
+        playerGenerator.add(new Player("Clint Capela", 15, 5, 85, "/images/players/clintcapela.png"));
+        playerGenerator.add(new Player("Robert Williams", 44, 5, 82, "/images/players/generic.png"));
+        playerGenerator.add(new Player("Mitchell Robinson", 23, 5, 82, "/images/players/mitchellrobinson.png"));
+        playerGenerator.add(new Player("T.J. Warren", 1, 3, 82, "/images/players/generic.png"));
+        playerGenerator.add(new Player("Kyle Kuzma", 33, 3, 82, "/images/players/kylekuzma.png"));
+        playerGenerator.add(new Player("Ja Morant", 12, 1, 93, "/images/players/jamorant.png"));
+        playerGenerator.add(new Player("Jamal Murray", 27, 1, 85, "/images/players/jamalmurray.png"));
+        playerGenerator.add(new Player("C.J. McCollum", 3, 2, 87, "/images/players/generic.png"));
+        playerGenerator.add(new Player("Dejounte Murray", 5, 1, 87, "/images/players/generic.png"));
+        playerGenerator.add(new Player("Bradley Beal", 3, 2, 87, "/images/players/bradleybeal.png"));
+        playerGenerator.add(new Player("Derrick Rose", 4, 1, 83, "/images/players/derrickrose.png"));
 
         Collections.shuffle(playerGenerator);
 
         loadPlayer(playerGenerator);
-
-
 
     }
 }
