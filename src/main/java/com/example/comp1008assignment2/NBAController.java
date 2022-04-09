@@ -231,6 +231,15 @@ public class NBAController implements Initializable {
 
             // Show the new player.
             loadPlayer(playerGenerator);
+
+            // Clear the previous entered information
+            createPlayerName.setText("");
+            createPlayerPosition.setText("");
+            createrPlayerNumber.setText("");
+            createPlayerRating.setValue(0);
+            createRatingView.setText("Rating:");
+
+
         } catch (Exception error) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Error");
