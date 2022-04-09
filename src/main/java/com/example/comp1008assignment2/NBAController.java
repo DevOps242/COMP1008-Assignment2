@@ -54,6 +54,51 @@ public class NBAController implements Initializable {
     private ImageView playerImg;
 
     @FXML
+    private Label pfName;
+
+    @FXML
+    private Label pfPos;
+
+    @FXML
+    private Label pfRating;
+
+    @FXML
+    private Label pgName;
+
+    @FXML
+    private Label pgPos;
+
+    @FXML
+    private Label pgRating;
+
+    @FXML
+    private Label sfName;
+
+    @FXML
+    private Label sfPos;
+
+    @FXML
+    private Label sfRating;
+
+    @FXML
+    private Label sgName;
+
+    @FXML
+    private Label sgPos;
+
+    @FXML
+    private Label sgRating;
+
+    @FXML
+    private Label cName;
+
+    @FXML
+    private Label cPos;
+
+    @FXML
+    private Label cRating;
+
+    @FXML
     private Label playerName;
 
     @FXML
@@ -144,10 +189,72 @@ public class NBAController implements Initializable {
 
     }
 
+    /**
+     * Method loads the starting five and displays them to the GUI
+     * @param event
+     */
     @FXML
     void loadStartingFive(ActionEvent event) {
-        team.getStartingFive();
+
+        //        1. Point Guard
+        //        2. Shooting Guard
+        //        3. Small Forward
+        //        4. Power Forward
+        //        5. Center
+
+        // Load in the starting five players.
+        ArrayList<Player> startingFivePlayers = team.getStartingFive();
+        Player pointGuard = null;
+        Player shootingGuard = null;
+        Player smallForward = null;
+        Player powerForward = null;
+        Player center = null;
+
+        // Assign the object to the respectable position
+        for (Player item : startingFivePlayers) {
+            if (item.getPosition().equals("Point Guard")){
+                pointGuard = item;
+            }
+            if (item.getPosition().equals("Shooting Guard")){
+                shootingGuard = item;
+            }
+            if (item.getPosition().equals("Small Forward")){
+                smallForward = item;
+            }
+            if (item.getPosition().equals("Power Forward")){
+                powerForward = item;
+            }
+            if (item.getPosition().equals("Center")){
+                center = item;
+            }
+        }
+
+        // Load the Point Guard information
+        pgPos.setText(pointGuard.getPosition());
+        pgName.setText(pointGuard.getName());
+        pgRating.setText(Double.toString(pointGuard.getAverageRating()) + "%");
+
+        // Load the Shooting Guard information
+        sgPos.setText(shootingGuard.getPosition());
+        sgName.setText(shootingGuard.getName());
+        sgRating.setText(Double.toString(shootingGuard.getAverageRating()) + "%");
+
+        // Load the Small Forward information
+        sfPos.setText(smallForward.getPosition());
+        sfName.setText(smallForward.getName());
+        sfRating.setText(Double.toString(smallForward.getAverageRating()) + "%");
+
+        // Load the Power Forward information
+        pfPos.setText(powerForward.getPosition());
+        pfName.setText(powerForward.getName());
+        pfRating.setText(Double.toString(powerForward.getAverageRating()) + "%");
+
+        // Load the Center information
+        cPos.setText(center.getPosition());
+        cName.setText(center.getName());
+        cRating.setText(Double.toString(center.getAverageRating()) + "%");
     }
+
 
     /**
      * Loads the players to choose from.

@@ -24,8 +24,8 @@
                <children>
                   <GridPane prefHeight="126.0" prefWidth="245.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="10.0" prefWidth="106.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="139.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -33,17 +33,17 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label alignment="CENTER" prefHeight="24.0" prefWidth="125.0" text="Team Name:" textAlignment="CENTER">
+                        <Label prefHeight="24.0" prefWidth="125.0" text="Team Name:" textAlignment="CENTER">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="24.0" prefWidth="134.0" text="Team State:" textAlignment="CENTER" GridPane.rowIndex="1">
+                        <Label prefHeight="24.0" prefWidth="134.0" text="Team State:" textAlignment="CENTER" GridPane.rowIndex="1">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="24.0" prefWidth="120.0" text="Team Rating:" textAlignment="CENTER" GridPane.rowIndex="2">
+                        <Label prefHeight="24.0" prefWidth="120.0" text="Team Rating:" textAlignment="CENTER" GridPane.rowIndex="2">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -77,8 +77,8 @@
                   <GridPane prefHeight="165.0" prefWidth="258.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="84.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="112.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="49.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="101.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="60.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -90,8 +90,23 @@
                     </rowConstraints>
                      <children>
                         <Label alignment="CENTER" prefHeight="17.0" prefWidth="82.0" text="Position:" />
-                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="82.0" text="Number:" GridPane.columnIndex="2" />
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="82.0" text="Rating:" GridPane.columnIndex="2" />
                         <Label alignment="CENTER" prefHeight="17.0" prefWidth="82.0" text="Name:" textAlignment="CENTER" GridPane.columnIndex="1" />
+                        <Label fx:id="pgPos" prefHeight="23.0" prefWidth="81.0" GridPane.rowIndex="1" />
+                        <Label fx:id="pgName" prefHeight="23.0" prefWidth="101.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="sgPos" prefHeight="23.0" prefWidth="81.0" GridPane.rowIndex="2" />
+                        <Label fx:id="sfPos" prefHeight="23.0" prefWidth="81.0" GridPane.rowIndex="3" />
+                        <Label fx:id="pfPos" prefHeight="23.0" prefWidth="81.0" GridPane.rowIndex="4" />
+                        <Label fx:id="cPos" prefHeight="23.0" prefWidth="81.0" GridPane.rowIndex="5" />
+                        <Label fx:id="sgName" prefHeight="23.0" prefWidth="101.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="sfName" prefHeight="23.0" prefWidth="101.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="pfName" prefHeight="23.0" prefWidth="101.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="cName" prefHeight="23.0" prefWidth="101.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="pgRating" prefHeight="23.0" prefWidth="101.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label fx:id="sgRating" prefHeight="23.0" prefWidth="101.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label fx:id="sfRating" prefHeight="23.0" prefWidth="101.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Label fx:id="pfRating" prefHeight="23.0" prefWidth="101.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <Label fx:id="cRating" prefHeight="23.0" prefWidth="101.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
                </children>
@@ -125,8 +140,8 @@
          <children>
             <GridPane prefHeight="161.0" prefWidth="200.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="69.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="10.0" prefWidth="131.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="61.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="139.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -135,22 +150,22 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Name:">
+                  <Label prefHeight="17.0" prefWidth="101.0" text="Name:">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Number:" GridPane.rowIndex="1">
+                  <Label prefHeight="17.0" prefWidth="101.0" text="Number:" GridPane.rowIndex="1">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Rating:" GridPane.rowIndex="3">
+                  <Label prefHeight="17.0" prefWidth="101.0" text="Rating:" GridPane.rowIndex="3">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Position:" GridPane.rowIndex="2">
+                  <Label prefHeight="17.0" prefWidth="101.0" text="Position:" GridPane.rowIndex="2">
                      <font>
                         <Font size="16.0" />
                      </font>

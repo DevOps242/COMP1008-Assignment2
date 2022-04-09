@@ -97,6 +97,14 @@ public class Team {
     }
 
     /**
+     * Returns an array list of all players.
+     * @return
+     */
+    public ArrayList<Player> getPlayers(){
+        return players;
+    }
+
+    /**
      * Method that filters the players and select the highest rating player for the position.
      * @return
      */
