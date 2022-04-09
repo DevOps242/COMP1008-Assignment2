@@ -28,7 +28,7 @@ public class Player {
      * @param name
      */
     public void setName(String name) {
-        if (name.length() > 2 && !name.isEmpty())
+        if (name.trim().length() > 2 && !name.isEmpty())
         {
             name = name.substring(0,1).toUpperCase() + name.substring(1) ;
             this.name = name.trim();

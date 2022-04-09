@@ -31,7 +31,7 @@ public class Team {
      * @param name
      */
     public void setName(String name) {
-        if(name.length() > 2 )
+        if(name.trim().length() > 2 )
             this.name = name;
         else
             throw new IllegalArgumentException("Team name must be at least two characters");
@@ -46,7 +46,7 @@ public class Team {
      * @param state
      */
     public void setState(String state) {
-        if(state.length() > 2)
+        if(state.trim().length() > 2)
             this.state = state;
         else
             throw new IllegalArgumentException("Team State must be at least two characters");
@@ -57,7 +57,10 @@ public class Team {
     }
 
     public void setLogo(String logo) {
-        this.logo = logo;
+        if(logo.startsWith("images/teams/"))
+            this.logo = logo;
+        else
+            throw new IllegalArgumentException("Teams Image is an invalid image");
     }
 
     /**

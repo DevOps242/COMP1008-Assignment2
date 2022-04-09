@@ -18,6 +18,7 @@ class PlayerTest {
     @Test
     void setName() {
         player.setName("Micheal Brown");
+        assertEquals("Micheal Brown", player.getName());
     }
 
     @Test
