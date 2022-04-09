@@ -23,7 +23,7 @@ public class NBAController implements Initializable {
 
     // Template information above
 
-    // Initalize team object;
+    // Initialize team object;
     Team team = new Team();
 
     // Will be use to show the next players
@@ -158,10 +158,19 @@ public class NBAController implements Initializable {
         playerName.setText(players.get(playerCounter).getName());
         playerNumber.setText(Integer.toString(players.get(playerCounter).getJerseyNumber()));
         playerPosition.setText(players.get(playerCounter).getPosition());
-        playerRating.setText(Double.toString(players.get(playerCounter).getAverageRating()));
-        // Need to load in there image.
+        playerRating.setText(Double.toString(players.get(playerCounter).getAverageRating()) + "%");
+        // Need to load in their image.
+        try {
+            playerImg.setImage(new Image(getClass().getResource(players.get(playerCounter).getPlayerImage()).toExternalForm()));
+        } catch (Exception error) {
+            throw new IllegalStateException("There was an issue loading your player image: " + error);
+        }
+
     }
 
+    /**
+     * Generates a random number from 0 - 5 and selects a team for you to start building once you hit add player.
+     */
     private void loadTeam() {
         Random rand = new Random();
         int min = 0;
@@ -200,7 +209,6 @@ public class NBAController implements Initializable {
                 team.setState("Chicago");
                 team.setLogo("/images/teams/" + team.getName() + ".png");
                 break;
-
         }
 
         // Set the team name and state
@@ -211,33 +219,24 @@ public class NBAController implements Initializable {
         try {
             teamLogo.setImage(new Image(getClass().getResource(team.getLogo()).toExternalForm()));
         } catch (Exception error) {
-            throw new IllegalStateException("There was an issue loading your image: " + error);
+            throw new IllegalStateException("There was an issue loading your team image: " + error);
         }
-
-
-
-
-
     }
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        playerGenerator.add(new Player("Steph Curry", 30, 1, 96));
-        playerGenerator.add(new Player("Lebron James", 6, 3, 96));
-        playerGenerator.add(new Player("Kevin Durant", 7, 3, 96));
-        playerGenerator.add(new Player("John Wall", 1, 1, 83));
-        // Get ratings for the below
-        playerGenerator.add(new Player("Steven Adams", 5, 5, 96));
-        playerGenerator.add(new Player("Kyle Anderson", 1, 4, 96));
-        playerGenerator.add(new Player("Deandre Ayton", 22, 5, 96));
-        playerGenerator.add(new Player("Mo Bamba", 5, 5, 96));
+        playerGenerator.add(new Player("Steph Curry", 30, 1, 96, "/images/players/stephcurry.png"));
+        playerGenerator.add(new Player("Lebron James", 6, 3, 96, "/images/players/lebronjames.png"));
+        playerGenerator.add(new Player("Kevin Durant", 7, 3, 96, "/images/players/kevindurant.png"));
+        playerGenerator.add(new Player("John Wall", 1, 1, 83, "/images/players/johnwall.png"));
+        playerGenerator.add(new Player("Khem Birch", 24, 5, 76, "/images/players/khembirch.png"));
+        playerGenerator.add(new Player("Kyle Anderson", 1, 4, 79, "/images/players/kyleanderson.jpg"));
+        playerGenerator.add(new Player("Deandre Ayton", 22, 5, 86, "/images/players/deandreayton.png"));
+        playerGenerator.add(new Player("Mo Bamba", 5, 5, 80, "/images/players/mobamba.png"));
         Collections.shuffle(playerGenerator);
 
         loadPlayer(playerGenerator);
-
 
 
 

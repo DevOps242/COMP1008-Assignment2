@@ -9,12 +9,14 @@ public class Player {
     private int jerseyNumber;
     private int position;
     private double averageRating;
+    private String playerImage;
 
-    public Player(String name, int jerseyNumber, int position, double averageRating) {
+    public Player(String name, int jerseyNumber, int position, double averageRating, String playerImage) {
         setName(name);
         setJerseyNumber(jerseyNumber);
         setPosition(position);
         setAverageRating(averageRating);
+        setPlayerImage(playerImage);
     }
 
     public String getName() {
@@ -105,6 +107,16 @@ public class Player {
         else
             throw new IllegalArgumentException("Player Rating must be betweeen 0 and 100");
     }
+
+    public String getPlayerImage() {
+        return playerImage;
+    }
+
+    public void setPlayerImage(String image) {
+        this.playerImage = image;
+    }
+
+
 
     @Override
     public String toString() {
