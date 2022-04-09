@@ -8,10 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Hashtable;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 public class NBAController implements Initializable {
@@ -33,6 +30,8 @@ public class NBAController implements Initializable {
 
     // Load in some players.
     ArrayList<Player> playerGenerator = new ArrayList<Player>();
+
+    // Generate random Team Info.
 
 
     @FXML
@@ -88,7 +87,6 @@ public class NBAController implements Initializable {
         } else {
             playerCounter = playerCounter + 1;
         }
-
         this.loadPlayer(playerGenerator);
     }
 
@@ -107,19 +105,6 @@ public class NBAController implements Initializable {
     }
 
     /**
-     * Loads the players to choose from.
-     * @param players
-     */
-    private void loadPlayer(ArrayList<Player> players) {
-        // Set the first random player information;
-        playerName.setText(players.get(playerCounter).getName());
-        playerNumber.setText(Integer.toString(players.get(playerCounter).getJerseyNumber()));
-        playerPosition.setText(players.get(playerCounter).getPosition());
-        playerRating.setText(Double.toString(players.get(playerCounter).getAverageRating()));
-        // Need to load in there image.
-    }
-
-    /**
      * Adds players to team and removes added player from the draft list.
      * @param event
      */
@@ -134,6 +119,10 @@ public class NBAController implements Initializable {
         // Load another play who is still in the list.
         playerCounter=0;
         loadPlayer(playerGenerator);
+
+        // Call method that will randomly pick a team for your draft.
+        if ( team.getName() == null)
+            loadTeam();
     }
 
     /**
@@ -158,6 +147,69 @@ public class NBAController implements Initializable {
     void loadStartingFive(ActionEvent event) {
 
     }
+
+    /**
+     * Loads the players to choose from.
+     * @param players
+     */
+    private void loadPlayer(ArrayList<Player> players) {
+        // Set the first random player information;
+        playerName.setText(players.get(playerCounter).getName());
+        playerNumber.setText(Integer.toString(players.get(playerCounter).getJerseyNumber()));
+        playerPosition.setText(players.get(playerCounter).getPosition());
+        playerRating.setText(Double.toString(players.get(playerCounter).getAverageRating()));
+        // Need to load in there image.
+    }
+
+    private void loadTeam() {
+        Random rand = new Random();
+        int min = 0;
+        int max = 5;
+
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+
+        switch (randomNum) {
+            case 0:
+                team.setName("Lakers");
+                team.setState("Los Angeles");
+                team.setLogo("");
+                break;
+            case 1:
+                team.setName("Suns");
+                team.setState("Phoenix");
+                team.setLogo("");
+                break;
+            case 2:
+                team.setName("Celtics");
+                team.setState("Boston");
+                team.setLogo("");
+                break;
+            case 3:
+                team.setName("Raptors");
+                team.setState("Toronto");
+                team.setLogo("");
+                break;
+            case 4:
+                team.setName("Nets");
+                team.setState("Brooklyn");
+                team.setLogo("");
+                break;
+            case 5:
+                team.setName("Bulls");
+                team.setState("Chicago");
+                team.setLogo("");
+                break;
+
+        }
+//        teamLogo.setImage();
+
+        teamName.setText(team.getName());
+
+        teamState.setText(team.getState());
+
+
+    }
+
 
 
     @Override

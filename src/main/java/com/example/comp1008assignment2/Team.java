@@ -28,7 +28,7 @@ public class Team {
      * @param name
      */
     public void setName(String name) {
-        if(name.length() < 2 )
+        if(name.length() > 2 )
             this.name = name;
         else
             throw new IllegalArgumentException("Team name must be at least two characters");
@@ -43,7 +43,7 @@ public class Team {
      * @param state
      */
     public void setState(String state) {
-        if(state.length() < 2)
+        if(state.length() > 2)
             this.state = state;
         else
             throw new IllegalArgumentException("Team State must be at least two characters");
