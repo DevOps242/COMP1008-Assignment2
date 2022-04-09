@@ -165,7 +165,9 @@ class PlayerTest {
     @Test
     void setPlayerImageInvalid2() {
         Assertions.assertThrows(IllegalArgumentException.class, ()-> {
+            Player player2 = new Player("Mark Jones", 32, 4, 43, "images/players/generic.png");
             player.setPlayerImage("images/players/generic.png");
+
         });
     }
 
