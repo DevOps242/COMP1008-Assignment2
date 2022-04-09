@@ -125,6 +125,12 @@ public class NBAController implements Initializable {
     void addPlayerToTeam(ActionEvent event) {
         // Add that object to the team.
         team.addPlayer(playerGenerator.get(playerCounter));
+
+        // remove player from the list
+        playerGenerator.remove(playerCounter);
+
+        // Load another play who is still in the list.
+        loadPlayer(playerGenerator);
     }
 
     @FXML
