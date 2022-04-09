@@ -100,9 +100,9 @@
       </VBox>
       <ButtonBar layoutX="4.0" layoutY="369.0" prefHeight="40.0" prefWidth="338.0">
         <buttons>
-          <Button fx:id="addPlayer" mnemonicParsing="false" text="Add to Team" />
-            <Button fx:id="calculateWinRate" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Win Rate" />
-            <Button fx:id="genStartingFive" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Starting Five" />
+          <Button fx:id="addPlayer" mnemonicParsing="false" onAction="#addPlayerToTeam" text="Add to Team" />
+            <Button fx:id="calculateWinRate" mnemonicParsing="false" onAction="#calculateWinRate" prefHeight="25.0" prefWidth="112.0" text="Win Rate" />
+            <Button fx:id="genStartingFive" mnemonicParsing="false" onAction="#loadStartingFive" prefHeight="25.0" prefWidth="106.0" text="Starting Five" />
         </buttons>
       </ButtonBar>
       <ButtonBar layoutX="201.0" layoutY="192.0" prefHeight="40.0" prefWidth="170.0">
@@ -111,9 +111,9 @@
             <Button fx:id="playerCycleNext" mnemonicParsing="false" onAction="#loadNextPlayer" text="Next" />
         </buttons>
       </ButtonBar>
-      <ButtonBar layoutX="242.0" layoutY="232.0" prefHeight="40.0" prefWidth="100.0">
+      <ButtonBar layoutX="225.0" layoutY="232.0" prefHeight="40.0" prefWidth="131.0">
         <buttons>
-          <Button fx:id="createPlayer" alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Add Player" textAlignment="CENTER" />
+          <Button fx:id="createPlayer" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createPlayer" prefHeight="25.0" prefWidth="109.0" text="Create Player" textAlignment="CENTER" />
         </buttons>
       </ButtonBar>
       <VBox layoutX="14.0" layoutY="12.0" prefHeight="188.0" prefWidth="200.0">

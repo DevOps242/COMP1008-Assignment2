@@ -24,6 +24,9 @@ public class NBAController implements Initializable {
 
     // Template information above
 
+    // Initalize team object;
+    Team team = new Team();
+
     // Will be use to show the next players
     private int playerCounter = 0;
 
@@ -118,6 +121,27 @@ public class NBAController implements Initializable {
         // Need to load in there image.
     }
 
+    @FXML
+    void addPlayerToTeam(ActionEvent event) {
+        // Add that object to the team.
+        team.addPlayer(playerGenerator.get(playerCounter));
+    }
+
+    @FXML
+    void calculateWinRate(ActionEvent event) {
+
+    }
+
+    @FXML
+    void createPlayer(ActionEvent event) {
+
+    }
+
+    @FXML
+    void loadStartingFive(ActionEvent event) {
+
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -135,8 +159,7 @@ public class NBAController implements Initializable {
 
         loadPlayer(playerGenerator);
 
-        // Initalize team object;
-        Team team = new Team();
+
 
 
     }

@@ -1,13 +1,12 @@
 package com.example.comp1008assignment2;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Team {
     private String name;
     private String state;
     private String logo;
-    private ArrayList<Player> players;
+    private ArrayList<Player> players = new ArrayList<Player>();
 
     public Team(String name, String state, String logo) {
         setName(name);
@@ -62,11 +61,20 @@ public class Team {
      * This method accepts a Player object and adds it to the team
      * @param player
      */
-    public void addPlayer(Player player){
-        if (players.size() <= 11)
+    public void addPlayer(Player player) {
+        if (players.size() <= 11) {
             players.add(player);
+        }
         else
             throw new IllegalArgumentException("Team is full there can only be up to 11 players");
+    }
+
+    /**
+     *
+     * @return The size of the team.
+     */
+    public int getTeamSize() {
+        return players.size();
     }
 
     /**
