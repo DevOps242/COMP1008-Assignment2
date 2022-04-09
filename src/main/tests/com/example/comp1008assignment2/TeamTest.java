@@ -15,8 +15,8 @@ class TeamTest {
 
     @BeforeEach
     void setUp() {
-        team = new Team("Raptors", "Toronto", "images/teams/generic.png");
-        player = new Player("Derrick Rose", 32, 1, 92, "images/players/generic.png");
+        team = new Team("Raptors", "Toronto", "/images/teams/generic.png");
+        player = new Player("Derrick Rose", 32, 1, 92, "/images/players/generic.png");
         team.addPlayer(player);
     }
 
@@ -75,19 +75,10 @@ class TeamTest {
 
     @Test
     void addPlayer() {
-        Player player1 = new Player("James Brown", 25, 1, 67, "images/players/generic.png");
+        Player player1 = new Player("James Brown", 25, 1, 67, "/images/players/generic.png");
         team.addPlayer(player1);
 
         assertEquals(2, team.getTeamSize());
-    }
-
-    @Test
-    void addPlayerInvalid() {
-        if (team.getTeamSize() > 11) {
-            Assertions.assertThrows(IllegalArgumentException.class, ()-> {
-                team.addPlayer(player);
-            });
-        }
     }
 
     @Test
@@ -112,11 +103,11 @@ class TeamTest {
     @Test
     void getStartingFive() {
         ArrayList<Player> startingFive = new ArrayList<>();
-        Player player1 = new Player("Steph Curry", 30, 1, 96, "images/players/stephcurry.png");
-        Player player2 = new Player("Joel Ayayi", 17, 2, 68, "images/players/generic.png");
-        Player player3 = new Player("Lebron James", 6, 3, 96, "images/players/lebronjames.png");
-        Player player4 = new Player("Kyle Anderson", 1, 4, 79, "images/players/kyleanderson.jpg");
-        Player player5 = new Player("Deandre Ayton", 22, 5, 86, "images/players/deandreayton.png");
+        Player player1 = new Player("Steph Curry", 30, 1, 96, "/images/players/stephcurry.png");
+        Player player2 = new Player("Joel Ayayi", 17, 2, 68, "/images/players/generic.png");
+        Player player3 = new Player("Lebron James", 6, 3, 96, "/images/players/lebronjames.png");
+        Player player4 = new Player("Kyle Anderson", 1, 4, 79, "/images/players/kyleanderson.jpg");
+        Player player5 = new Player("Deandre Ayton", 22, 5, 86, "/images/players/deandreayton.png");
 
         startingFive.add(player1);
         startingFive.add(player2);

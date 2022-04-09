@@ -11,7 +11,7 @@ class PlayerTest {
 
     @BeforeEach
     void setUp() {
-        player = new Player("Derrick Rose", 32, 1, 92, "images/players/generic.png");
+        player = new Player("Derrick Rose", 32, 1, 92, "/images/players/generic.png");
     }
 
 
@@ -159,6 +159,13 @@ class PlayerTest {
     void setPlayerImageInvalid() {
         Assertions.assertThrows(IllegalArgumentException.class, ()-> {
             player.setPlayerImage("generic.png");
+        });
+    }
+
+    @Test
+    void setPlayerImageInvalid2() {
+        Assertions.assertThrows(IllegalArgumentException.class, ()-> {
+            player.setPlayerImage("images/players/generic.png");
         });
     }
 

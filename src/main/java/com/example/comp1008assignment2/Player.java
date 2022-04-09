@@ -110,6 +110,10 @@ public class Player {
         return playerImage;
     }
 
+    /**
+     * Validate thats the player image has the correct path name.
+     * @param image
+     */
     public void setPlayerImage(String image) {
         if (image.startsWith("/images/players/"))
             this.playerImage = image;

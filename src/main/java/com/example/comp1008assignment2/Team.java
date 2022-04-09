@@ -68,11 +68,7 @@ public class Team {
      * @param player
      */
     public void addPlayer(Player player) {
-        if (players.size() <= 11) {
-            players.add(player);
-        }
-        else
-            throw new IllegalArgumentException("Team is full there can only be up to 11 players");
+        players.add(player);
     }
 
     /**
