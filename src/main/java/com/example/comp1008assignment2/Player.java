@@ -28,7 +28,7 @@ public class Player {
      * @param name
      */
     public void setName(String name) {
-        if (name.length() > 2)
+        if (name.length() > 2 && !name.isEmpty())
         {
             name = name.substring(0,1).toUpperCase() + name.substring(1) ;
             this.name = name.trim();
@@ -69,7 +69,7 @@ public class Player {
      * @return String Position Name
      */
     public String getPosition() {
-        String positionName;
+        String positionName = "";
         // Using switch case to determine the position name returned.
         switch (this.position) {
             case 1:
@@ -87,8 +87,6 @@ public class Player {
             case 5:
                 positionName = "Center";
                 break;
-            default:
-                positionName = "";
         }
         return positionName;
     }
@@ -113,13 +111,9 @@ public class Player {
     }
 
     public void setPlayerImage(String image) {
-        this.playerImage = image;
-    }
-
-
-
-    @Override
-    public String toString() {
-        return String.format("");
+        if (image.startsWith("images/players/"))
+            this.playerImage = image;
+        else
+            throw new IllegalArgumentException("Player image provided is invalid");
     }
 }
