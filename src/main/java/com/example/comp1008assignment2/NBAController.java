@@ -3,10 +3,7 @@ package com.example.comp1008assignment2;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -195,34 +192,77 @@ public class NBAController implements Initializable {
     @FXML
     void calculateTeamRating(ActionEvent event) {
         if (team.getTeamSize() > 0 ) {
-            teamRating.setText(Double.toString(team.getTeamRating()) + "%");
+            teamRating.setText(Double.toString(Math.round(team.getTeamRating())) + "%");
         } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error Getting Team Rating.");
+            alert.setContentText("There must be at least 2 players on a team to calculate Team Ratings");
+            alert.showAndWait();
             throw new IllegalStateException("Team must have at least 2 players to calculate the Ratings.");
         }
     }
 
+    /**
+     * Captures the value of the new player ratings.
+     */
     @FXML
     void actionCreatePlayerRatingDrag() {
         String ratingView = createRatingView.getText();
-        ratingView = ratingView.substring(0,5) + " " + createPlayerRating.getValue() + "%";
+        ratingView = ratingView.substring(0,5) + " " + Math.round(createPlayerRating.getValue()) + "%";
         createRatingView.setText(ratingView);
     }
 
+
+    /**
+     * Creates a new player and adds them to the collection of players.
+     * @param event
+     */
     @FXML
     void createPlayer(ActionEvent event) {
+        try {
+            Player newPlayer = new Player(createPlayerName.getText(), Integer.parseInt(createrPlayerNumber.getText()), Integer.parseInt(createPlayerPosition.getText()), Math.round(createPlayerRating.getValue()), "/images/players/generic.png");
 
-        Player newPlayer = new Player(createPlayerName.getText(), Integer.parseInt(createrPlayerNumber.getText()), Integer.parseInt(createPlayerPosition.getText()), createPlayerRating.getValue(), "/images/players/generic.png");
+            // Add to the list of players showing.
+            playerGenerator.add(newPlayer);
 
-        // Add to the list of players showing.
-        playerGenerator.add(newPlayer);
+            // Change the index of the loaded player.
+            playerCounter = playerGenerator.size() - 1;
 
-        // Change the index of the loaded player.
-        playerCounter = playerGenerator.size() - 1;
+            // Show the new player.
+            loadPlayer(playerGenerator);
+        } catch (Exception error) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error Creating Player");
+            alert.setContentText(error.toString());
+            alert.showAndWait();
+            throw new IllegalStateException("There was an issue creating your player");
+        }
+    }
 
-        // Show the new player.
-        loadPlayer(playerGenerator);
+    /**
+     * Removes a player from the Players list.
+     * @param event
+     */
+    @FXML
+    void removePlayer(ActionEvent event) {
+        if (playerGenerator.size() > 1) {
+            // Remove the player at the index.
+            playerGenerator.remove(playerCounter);
 
+            // Set the counter to the previous player
+            playerCounter = playerGenerator.size() - 1;
 
+            // load the player
+            loadPlayer(playerGenerator);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error Removing Player");
+            alert.setContentText("Can not remove player because it's the last player left.");
+            alert.showAndWait();
+        }
     }
 
     /**
@@ -301,6 +341,11 @@ public class NBAController implements Initializable {
         try {
             playerImg.setImage(new Image(getClass().getResource(players.get(playerCounter).getPlayerImage()).toExternalForm()));
         } catch (Exception error) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error Loading Image");
+            alert.setContentText("There was an issue loading your player image: ");
+            alert.showAndWait();
             throw new IllegalStateException("There was an issue loading your player image: " + error);
         }
 
@@ -357,7 +402,13 @@ public class NBAController implements Initializable {
         try {
             teamLogo.setImage(new Image(getClass().getResource(team.getLogo()).toExternalForm()));
         } catch (Exception error) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error Loading Image");
+            alert.setContentText("There was an issue loading your team image: ");
+            alert.showAndWait();
             throw new IllegalStateException("There was an issue loading your team image: " + error);
+
         }
     }
 
@@ -376,6 +427,18 @@ public class NBAController implements Initializable {
         playerGenerator.add(new Player("Joel Ayayi", 17, 2, 68, "/images/players/generic.png"));
         playerGenerator.add(new Player("Cole Anthony", 50, 2, 78, "/images/players/generic.png"));
         playerGenerator.add(new Player("Grayson Allen", 7, 2, 76, "/images/players/generic.png"));
+
+        // New Players
+
+
+
+
+
+
+
+
+
+
         Collections.shuffle(playerGenerator);
 
         loadPlayer(playerGenerator);
