@@ -28,7 +28,7 @@ public class Player {
     public void setName(String name) {
         if (name.length() > 2)
         {
-            name = name.substring(0,1).toUpperCase();
+            name = name.substring(0,1).toUpperCase() + name.substring(1) ;
             this.name = name.trim();
         }
         else
@@ -44,7 +44,7 @@ public class Player {
      * @param jerseyNumber
      */
     public void setJerseyNumber(int jerseyNumber) {
-        if (jerseyNumber >= 0 && jerseyNumber <= 0)
+        if (jerseyNumber >= 0 && jerseyNumber <= 100)
             this.jerseyNumber = jerseyNumber;
         else
             throw new IllegalArgumentException("Jersey Number must be between 0 and 100");

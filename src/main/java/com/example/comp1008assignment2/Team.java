@@ -16,6 +16,10 @@ public class Team {
         players = new ArrayList<>();
     }
 
+    public Team() {
+
+    }
+
     public String getName() {
         return name;
     }
