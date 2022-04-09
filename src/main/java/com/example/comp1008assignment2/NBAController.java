@@ -23,6 +23,14 @@ public class NBAController implements Initializable {
     }
 
     // Template information above
+
+    // Will be use to show the next players
+    private int playerCounter = 0;
+
+    // Load in some players.
+    ArrayList<Player> playerGenerator = new ArrayList<Player>();
+
+
     @FXML
     private Button addPlayer;
 
@@ -68,24 +76,51 @@ public class NBAController implements Initializable {
     @FXML
     private Label teamWinRate;
 
+    /**
+     * Cycles through the generated players - going forward.
+     * @param event
+     */
     @FXML
     void loadNextPlayer(ActionEvent event) {
+        if (playerCounter == playerGenerator.size() - 1) {
+            playerCounter = 0;
+        } else {
+            playerCounter = playerCounter + 1;
+        }
 
+        this.loadPlayer(playerGenerator);
     }
 
+    /**
+     * Cycles through the generated players - going backwards.
+     * @param event
+     */
     @FXML
     void loadPrevPlayer(ActionEvent event) {
+        if (playerCounter > 0) {
+            playerCounter = playerCounter - 1;
+        } else {
+            playerCounter = playerGenerator.size() - 1;
+        }
+        this.loadPlayer(playerGenerator);
+    }
 
+    /**
+     * Loads the players to choose from.
+     * @param players
+     */
+    private void loadPlayer(ArrayList<Player> players) {
+        // Set the first random player information;
+        playerName.setText(players.get(playerCounter).getName());
+        playerNumber.setText(Integer.toString(players.get(playerCounter).getJerseyNumber()));
+        playerPosition.setText(players.get(playerCounter).getPosition());
+        playerRating.setText(Double.toString(players.get(playerCounter).getAverageRating()));
+        // Need to load in there image.
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Will be use to show the next players
-        int playerCounter = 0;
-
-        // Load in some players.
-        ArrayList<Player> playerGenerator = new ArrayList<Player>();
 
         playerGenerator.add(new Player("Steph Curry", 30, 1, 96));
         playerGenerator.add(new Player("Lebron James", 6, 3, 96));
@@ -98,11 +133,7 @@ public class NBAController implements Initializable {
         playerGenerator.add(new Player("Mo Bamba", 5, 5, 96));
         Collections.shuffle(playerGenerator);
 
-        // Set the first random player information;
-        playerName.setText(playerGenerator.get(playerCounter).getName());
-        playerNumber.setText(Integer.toString(playerGenerator.get(playerCounter).getJerseyNumber()));
-        playerPosition.setText(playerGenerator.get(playerCounter).getPosition());
-        playerRating.setText(Double.toString(playerGenerator.get(playerCounter).getAverageRating()));
+        loadPlayer(playerGenerator);
 
         // Initalize team object;
         Team team = new Team();
