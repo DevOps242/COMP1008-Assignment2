@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Hashtable;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutionException;
 
 public class NBAController implements Initializable {
     @FXML
@@ -36,9 +37,6 @@ public class NBAController implements Initializable {
 
     @FXML
     private Button addPlayer;
-
-    @FXML
-    private Button calculateWinRate;
 
     @FXML
     private Button createPlayer;
@@ -77,7 +75,7 @@ public class NBAController implements Initializable {
     private Label teamState;
 
     @FXML
-    private Label teamWinRate;
+    private Label teamRating;
 
     /**
      * Cycles through the generated players - going forward.
@@ -121,6 +119,10 @@ public class NBAController implements Initializable {
         // Need to load in there image.
     }
 
+    /**
+     * Adds players to team and removes added player from the draft list.
+     * @param event
+     */
     @FXML
     void addPlayerToTeam(ActionEvent event) {
         // Add that object to the team.
@@ -130,12 +132,21 @@ public class NBAController implements Initializable {
         playerGenerator.remove(playerCounter);
 
         // Load another play who is still in the list.
+        playerCounter=0;
         loadPlayer(playerGenerator);
     }
 
+    /**
+     * Calls the calculate Team Rating method of the team class. gets the average rating from all players on team.
+     * @param event
+     */
     @FXML
-    void calculateWinRate(ActionEvent event) {
-
+    void calculateTeamRating(ActionEvent event) {
+        if (team.getTeamSize() > 0 ) {
+            teamRating.setText(Double.toString(team.getTeamRating()) + "%");
+        } else {
+            throw new IllegalStateException("Team must have at least 2 players to calculate the Ratings.");
+        }
     }
 
     @FXML

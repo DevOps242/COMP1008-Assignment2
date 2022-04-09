@@ -101,7 +101,7 @@
       <ButtonBar layoutX="4.0" layoutY="369.0" prefHeight="40.0" prefWidth="338.0">
         <buttons>
           <Button fx:id="addPlayer" mnemonicParsing="false" onAction="#addPlayerToTeam" text="Add to Team" />
-            <Button fx:id="calculateWinRate" mnemonicParsing="false" onAction="#calculateWinRate" prefHeight="25.0" prefWidth="112.0" text="Win Rate" />
+            <Button fx:id="calculateTeamRating" mnemonicParsing="false" onAction="#calculateTeamRating" prefHeight="25.0" prefWidth="112.0" text="Team Rating" />
             <Button fx:id="genStartingFive" mnemonicParsing="false" onAction="#loadStartingFive" prefHeight="25.0" prefWidth="106.0" text="Starting Five" />
         </buttons>
       </ButtonBar>
