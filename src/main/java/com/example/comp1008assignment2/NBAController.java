@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
@@ -172,40 +173,49 @@ public class NBAController implements Initializable {
             case 0:
                 team.setName("Lakers");
                 team.setState("Los Angeles");
-                team.setLogo("");
+                team.setLogo("/images/teams/" + team.getName() + ".png");
                 break;
             case 1:
                 team.setName("Suns");
                 team.setState("Phoenix");
-                team.setLogo("");
+                team.setLogo("/images/teams/" + team.getName() + ".png");
                 break;
             case 2:
                 team.setName("Celtics");
                 team.setState("Boston");
-                team.setLogo("");
+                team.setLogo("/images/teams/" + team.getName() + ".png");
                 break;
             case 3:
                 team.setName("Raptors");
                 team.setState("Toronto");
-                team.setLogo("");
+                team.setLogo("/images/teams/" + team.getName() + ".png");
                 break;
             case 4:
                 team.setName("Nets");
                 team.setState("Brooklyn");
-                team.setLogo("");
+                team.setLogo("/images/teams/" + team.getName() + ".png");
                 break;
             case 5:
                 team.setName("Bulls");
                 team.setState("Chicago");
-                team.setLogo("");
+                team.setLogo("/images/teams/" + team.getName() + ".png");
                 break;
 
         }
-//        teamLogo.setImage();
 
+        // Set the team name and state
         teamName.setText(team.getName());
-
         teamState.setText(team.getState());
+
+        //Get the error if the image failed to load.
+        try {
+            teamLogo.setImage(new Image(getClass().getResource(team.getLogo()).toExternalForm()));
+        } catch (Exception error) {
+            throw new IllegalStateException("There was an issue loading your image: " + error);
+        }
+
+
+
 
 
     }
